@@ -1,6 +1,6 @@
 # SQL Injection — Authentication Bypass (Variant 1) — JavaScript / Node.js version
 
-**Course:** Cyber Security (IT-30001), Autumn 2026, IIIT Allahabad
+**Course:** Cyber Security
 **Assignment:** Web Server Security — Exploitation and Mitigation of Four Vulnerability Categories
 **Category covered here:** SQL Injection → Variant 1 (Authentication Bypass)
 **Stack:** Node.js + Express + the built-in `node:sqlite` module (no native build/npm install needed for the DB driver)
