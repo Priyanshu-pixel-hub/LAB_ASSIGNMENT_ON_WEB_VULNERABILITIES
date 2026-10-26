@@ -1,0 +1,16 @@
+{
+  "name": "sqli-auth-bypass-js",
+  "version": "1.0.0",
+  "description": "SQL Injection - Authentication Bypass demo (vulnerable + mitigated), JavaScript/Node version",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node --experimental-sqlite server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
