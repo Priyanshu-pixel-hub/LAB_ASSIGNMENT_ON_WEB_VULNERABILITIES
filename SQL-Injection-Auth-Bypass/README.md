@@ -135,37 +135,9 @@ and the result page shows the query template was unchanged
 literal string value that matches no row. Take a screenshot of this for
 item (d).
 
-## 6. (e) Other mitigation options (theory only, not implemented)
+ 
 
-The parameterized/prepared-statement fix above is the one mitigation
-actually implemented, as the assignment allows. Other mitigation
-options covered in the lecture slides for SQL injection, and why they
-work:
-
-- **Input validation with allow-lists.** Restricting input to an
-  expected character set/format (e.g. only alphanumeric usernames)
-  rejects obviously malicious input before it ever reaches a query.
-  It's useful defence-in-depth, but weaker alone than parameterization
-  — allow-lists are easy to get wrong for complex input, and they
-  don't help once a field legitimately needs special characters
-  (e.g. passwords, which can contain `'` or `-` by design).
-- **Least-privilege database accounts.** The application's DB account
-  should only have the minimum permissions it needs (e.g. read access
-  to the `users` table only, no `DROP`/`ALTER`/cross-database access).
-  Even if an injection succeeds, the damage an attacker can do is
-  capped by what that account is allowed to do.
-- **Safe/generic error handling.** Returning generic error messages
-  (rather than raw database error text) to the client prevents
-  attackers from using verbose DB errors to fingerprint the database
-  engine or infer table/column names during exploitation
-  (error-based injection reconnaissance).
-
-Together these work _with_ the implemented fix as layered defences:
-the prepared statement eliminates the injection vector itself, while
-the others limit reconnaissance and blast radius if a flaw is missed
-elsewhere.
-
-## 7. Project structure
+## 6. Project structure
 
 ```
 sqli-auth-bypass-js/
@@ -174,5 +146,5 @@ sqli-auth-bypass-js/
 ├── README.md                 # this file
 ├── public/
 │   └── index.html            # home page with both login forms
-└── screenshots/                # put your exploit/mitigation screenshots here
+└── screenshots/                
 ```
