@@ -145,6 +145,5 @@ sqli-auth-bypass-js/
 ├── package.json
 ├── README.md                 # this file
 ├── public/
-│   └── index.html            # home page with both login forms
-└── screenshots/                
+│   └── index.html            # home page with both login forms           
 ```
