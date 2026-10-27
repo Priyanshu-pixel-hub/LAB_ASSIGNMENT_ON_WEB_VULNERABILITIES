@@ -1,0 +1,22 @@
+{
+  "name": "cs-reflected-xss-lab",
+  "version": "1.0.0",
+  "description": "Reflected XSS Security Demonstration Lab for Web Server Security Assignment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "xss",
+    "reflected-xss",
+    "cybersecurity",
+    "education",
+    "web-security"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
