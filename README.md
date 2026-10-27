@@ -209,7 +209,15 @@ npm start
 cd <xss-folder>
 # fill in install + run steps once this part is built
 ```
-- *(fill in: the payload used, and which endpoint/form to try it on)*
+# Reflected XSS Security Demonstration
+
+Demonstrates **Reflected Cross-Site Scripting (XSS)** using a vulnerable and a secured web page.
+
+- **Technologies:** Node.js, Express.js, HTML, CSS, JavaScript.
+- **Vulnerable version:** Reflects user input without HTML encoding.
+- **Secured version:** Uses `encodeHTML()` to prevent script execution.
+- **Testing:** Run `npm install`, `npm test`, and `npm start`.
+- **Access:** `http://127.0.0.1:3000/`
 
 ### Cross-Site Request Forgery (CSRF)
 
