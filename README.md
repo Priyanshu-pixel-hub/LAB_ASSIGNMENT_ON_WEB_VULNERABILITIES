@@ -20,8 +20,8 @@ and for each variant we:
 
 | Member name | Roll number | Category               | Variant implemented                          | Folder |
 |-------------|-------------|-------------------------|-----------------------------------------------|--------|
-| Priyanshu    | IIB2024037  | SQL Injection            | Variant 1 — Authentication Bypass             | [`/SQL-Injection-Auth-Bypass`](./sqli-auth-bypass-js) |
-| Haneesh   | [IIB2024026  | OS Command Injection     | Variant 1 — In-band     | [`/cs_lab_IIB2024026/fixed_app/server.js`](./) |
+| Priyanshu    | IIB2024037  | SQL Injection            | Variant 1 — Authentication Bypass             | [`/SQL-Injection-Auth-Bypass`](./SQL-Injection-Auth-Bypass) |
+| Haneesh   | IIB2024026  | OS Command Injection     | Variant 1 — In-band     | [`/cs_lab_IIB2024026/fixed_app/server.js`](./cs_lab_IIB2024026) |
 | [Name 3]    | [Roll No.]  | Cross-Site Scripting     | [Variant 1 — Stored / Variant 2 — Reflected]  | [`/<folder-name>`](./) |
 | [Name 4]    | [Roll No.]  | Cross-Site Request Forgery | [Variant 1 — GET-based / Variant 2 — POST-based] | [`/<folder-name>`](./) |
 
