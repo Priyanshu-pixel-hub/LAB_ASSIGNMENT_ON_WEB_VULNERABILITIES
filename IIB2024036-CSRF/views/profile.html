@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile — CSRF Educational Lab</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Apex University Student Portal</h1>
+    <div class="user-info">
+      <span>Logged in as: <strong id="header-user-name">Alex Johnson</strong></span>
+      <button id="btn-logout" class="btn btn-secondary btn-sm">Log Out</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Box 1: Student Information -->
+    <div class="box">
+      <h2>Student Profile</h2>
+      <div class="detail-row">
+        <span class="detail-label">Name:</span>
+        <span class="detail-value" id="student-name">Alex Johnson</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Student ID:</span>
+        <span class="detail-value" id="student-id">STU-2026-8942</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Registered Email:</span>
+        <span class="detail-value">
+          <span id="current-email" class="email-highlight">alex.johnson@university.edu</span>
+        </span>
+      </div>
+      <div style="margin-top: 12px; text-align: right;">
+        <button id="btn-reset-email" class="btn btn-secondary btn-sm">
+          Reset Email to Default
+        </button>
+      </div>
+    </div>
+
+    <!-- Box 2: Educational Lab Mode -->
+    <div class="box">
+      <h2>Server Startup Mode</h2>
+      <p style="font-size: 0.9rem; color: #4b5563;">
+        The security policy is initialized at server startup (<code>npm start</code> for Vulnerable Mode, <code>npm run start:secure</code> for Secure Mode). Test against the attacker website (<a href="http://localhost:4000" target="_blank" style="color: #2563eb;">http://localhost:4000</a>):
+      </p>
+
+      <div id="mode-status-alert" class="alert alert-danger">
+        <strong>Active Mode:</strong> <span id="mode-status-text">VULNERABLE MODE (GET requests will mutate email without CSRF token)</span>
+      </div>
+    </div>
+
+    <!-- Box 3: Mitigated Legitimate Update (POST + CSRF Token) -->
+    <div class="box">
+      <h2>Legitimate Email Update (Mitigated)</h2>
+      <p style="font-size: 0.9rem; color: #4b5563; margin-bottom: 12px;">
+        This legitimate form updates the email using <strong>HTTP POST</strong> protected by a <strong>Synchronizer CSRF Token</strong>.
+      </p>
+
+      <div class="alert alert-info" style="font-size: 0.85rem;">
+        <strong>Active Anti-CSRF Token:</strong><br>
+        <code id="active-csrf-token" style="word-break: break-all;">Loading token...</code>
+      </div>
+
+      <form id="legitimate-update-form">
+        <div class="form-group">
+          <label for="new-email">New Email Address:</label>
+          <input type="email" id="new-email" placeholder="e.g. alex.updated@university.edu" required>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Update Email (POST with CSRF Token)
+        </button>
+      </form>
+
+      <div id="legitimate-result" class="alert" style="display: none; margin-top: 12px;"></div>
+    </div>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

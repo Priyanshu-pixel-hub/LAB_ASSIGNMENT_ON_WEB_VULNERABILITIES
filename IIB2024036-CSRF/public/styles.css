@@ -1,0 +1,238 @@
+/* Plain, simple, readable CSS for Student Portal CSRF Lab */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+/* Header & Navigation */
+header {
+  background-color: #1e293b;
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+/* Boxes / Panels */
+.box {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.box h2 {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.box h3 {
+  font-size: 1rem;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+/* Details list */
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.detail-label {
+  font-weight: bold;
+  color: #4b5563;
+}
+
+.detail-value {
+  font-weight: bold;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #b91c1c;
+}
+
+.btn-secondary {
+  background-color: #e5e7eb;
+  color: #1f2937;
+  border-color: #d1d5db;
+}
+
+.btn-secondary:hover {
+  background-color: #d1d5db;
+}
+
+.btn-sm {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* Mode Switcher Buttons */
+.mode-toggle {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 10px;
+  font-weight: bold;
+  border: 2px solid #cbd5e1;
+  background: #f8fafc;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.mode-btn.active-vulnerable {
+  border-color: #dc2626;
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.mode-btn.active-secure {
+  border-color: #16a34a;
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+/* Alerts / Messages */
+.alert {
+  padding: 12px 14px;
+  border-radius: 4px;
+  margin: 12px 0;
+  font-size: 0.9rem;
+}
+
+.alert-info {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+}
+
+.alert-success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.alert-danger {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.alert-warning {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+
+/* Text Highlights */
+.email-highlight {
+  background: #fef3c7;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+code {
+  background: #f1f5f9;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.85em;
+  color: #c026d3;
+}
+
+ul {
+  padding-left: 20px;
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+li {
+  margin-bottom: 4px;
+}

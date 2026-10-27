@@ -1,0 +1,97 @@
+/* Simple, clean Wi-Fi portal stylesheet */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f1f5f9;
+  color: #334155;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.wifi-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  max-width: 420px;
+  width: 100%;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.wifi-icon {
+  margin: 0 auto 16px auto;
+  width: 64px;
+  height: 64px;
+  color: #2563eb;
+}
+
+.wifi-card h1 {
+  font-size: 1.4rem;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.wifi-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.btn-connect {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.btn-connect:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-connect:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.status-message {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  line-height: 1.4;
+}
+
+.footer-link {
+  margin-top: 20px;
+  font-size: 0.85rem;
+}
+
+.footer-link a {
+  color: #64748b;
+  text-decoration: none;
+}
+
+.footer-link a:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}

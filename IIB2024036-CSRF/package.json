@@ -1,0 +1,33 @@
+{
+  "name": "student-portal-csrf",
+  "version": "1.0.0",
+  "description": "Educational Student Portal demonstrating GET-based CSRF vulnerability exploitation and mitigation",
+  "main": "server.js",
+  "scripts": {
+    "start": "MODE=vulnerable node server.js",
+    "start:vulnerable": "MODE=vulnerable node server.js",
+    "start:secure": "MODE=secure node server.js",
+    "attacker": "node attacker-server.js",
+    "start:attacker": "node attacker-server.js",
+    "start:both": "node run-both.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/csrf.test.js"
+  },
+  "keywords": [
+    "csrf",
+    "security-lab",
+    "express",
+    "synchronizer-token",
+    "cybersecurity"
+  ],
+  "author": "Vikas Thatikonda (IIB2024036)",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  }
+}
