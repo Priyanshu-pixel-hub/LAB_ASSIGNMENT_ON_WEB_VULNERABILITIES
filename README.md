@@ -22,7 +22,7 @@ and for each variant we:
 |-------------|-------------|-------------------------|-----------------------------------------------|--------|
 | Priyanshu    | IIB2024037  | SQL Injection            | Variant 1 — Authentication Bypass             | [`/SQL-Injection-Auth-Bypass`](./SQL-Injection-Auth-Bypass) |
 | Haneesh   | IIB2024026  | OS Command Injection     | Variant 1 — In-band     | [`/cs_lab_IIB2024026/fixed_app/server.js`](./cs_lab_IIB2024026) |
-| [Praneel Gupta]    | [IIB2024029]  | Cross-Site Scripting     | [Variant 2 — Reflected]  | [./CS_Reflected_XSS] |
+| [Praneel Gupta]    | [IIB2024029]  | Cross-Site Scripting     | [Variant 2 — Reflected]  |  [`CS_Reflected_XSS`](./CS_Reflected_XSS/) |
 | [Name 4]    | [Roll No.]  | Cross-Site Request Forgery | [Variant 1 — GET-based / Variant 2 — POST-based] | [`/<folder-name>`](./) |
 
 ---
