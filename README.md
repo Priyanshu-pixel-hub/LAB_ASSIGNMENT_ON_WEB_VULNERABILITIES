@@ -219,6 +219,13 @@ Demonstrates **Reflected Cross-Site Scripting (XSS)** using a vulnerable and a s
 - **Testing:** Run `npm install`, `npm test`, and `npm start`.
 - **Access:** `http://127.0.0.1:3000/`
 
+**Mitigation:** HTML output encoding prevents user input from being interpreted as executable HTML.
+
+**Safety:** For educational use on localhost only.
+
+**Student:** Praneel | **Roll No.:** IIB2024029  
+**Assignment:** Web Server Security | **Variant:** Reflected XSS
+
 ### Cross-Site Request Forgery (CSRF)
 
 ```bash
@@ -227,19 +234,4 @@ cd <csrf-folder>
 ```
 - *(fill in: the payload/forged request used, and which endpoint to try it on)*
 
-# Reflected XSS Security Demonstration
 
-Demonstrates **Reflected Cross-Site Scripting (XSS)** using a vulnerable and a secured web page.
-
-- **Technologies:** Node.js, Express.js, HTML, CSS, JavaScript.
-- **Vulnerable version:** Reflects user input without HTML encoding.
-- **Secured version:** Uses `encodeHTML()` to prevent script execution.
-- **Testing:** Run `npm install`, `npm test`, and `npm start`.
-- **Access:** `http://127.0.0.1:3000/`
-
-**Mitigation:** HTML output encoding prevents user input from being interpreted as executable HTML.
-
-**Safety:** For educational use on localhost only.
-
-**Student:** Praneel | **Roll No.:** IIB2024029  
-**Assignment:** Web Server Security | **Variant:** Reflected XSS
