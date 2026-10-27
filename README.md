@@ -207,7 +207,9 @@ npm start
 
 ```bash
 cd <xss-folder>
-# fill in install + run steps once this part is built
+npm install
+npm start
+# open http://127.0.0.1:3000/
 ```
 # Reflected XSS Security Demonstration
 
